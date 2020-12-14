@@ -47,8 +47,8 @@ cnn.add(tf.keras.layers.Dense(units=3, activation='softmax'))
 cnn.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 
-'''callback_list = [
+callback_list = [
     EarlyStopping(monitor='val_loss',patience=10),
-    ModelCheckpoint(filepath="model.h5",monitor='val_loss',save_best_only=True,verbose=1)]'''
+    ModelCheckpoint(filepath="model.h5",monitor='val_loss',save_best_only=True,verbose=1)]
 
-cnn.fit(x = training_set, validation_data = val_set,epochs = 50,validation_steps = 10)
+cnn.fit(x = training_set, validation_data = val_set,epochs = 50,validation_steps = 10,callback=callback_list)
